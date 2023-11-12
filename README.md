@@ -27,12 +27,15 @@ python3 plot.py
 Finally, the results.
 
 Why is loading so slow in rust in comparison to python? Because in python I used polars which is **blazingly fast**. Using polars in rust made it even slower. The issue here is that the rust package `lightgbm` which has only function as a wrapper for C++ code of actual LightGBM, does support only specific input which is not really practical. 
+
 ![](./data/average_load_speedup.png)
 
 We seee that training time is basically the same. No gains here.
+
 ![](./data/average_train_speedup.png)
 
 The last implies that the only part where rust has noticeable advantable is when scoring small dataframes. This could be used in practice when you need to score the data extremely fast. I can imagine building the whole REST API for inference with only rust.
+
 ![](./data/average_inference_speedup.png)
 
 Benchmarked on
