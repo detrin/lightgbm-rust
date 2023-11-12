@@ -5,7 +5,7 @@ import json
 
 datasets = []
 for n_features in [10, 100, 1000]:
-    for n_samples in [1000, 10000, 100000, 1000000]:
+    for n_samples in [10**3, 10**4, 10**5, 10**6]:
         if n_samples == 1000000 and n_features == 1000:
             continue
         X, y = make_blobs(

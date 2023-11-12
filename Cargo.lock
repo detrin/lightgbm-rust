@@ -1061,6 +1061,7 @@ dependencies = [
  "itertools",
  "lightgbm",
  "polars",
+ "rayon",
  "serde_json",
 ]
 

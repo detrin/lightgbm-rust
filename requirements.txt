@@ -1,3 +1,5 @@
 scikit-learn
 polars
 lightgbm
+pandas
+matplotlib

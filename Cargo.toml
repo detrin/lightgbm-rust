@@ -13,3 +13,4 @@ serde_json = "1.0.59"
 polars = { version = "0.34.2", features = ["lazy", "temporal", "describe", "json", "parquet", "dtype-datetime"] }
 eval-metrics = "1.0.2"
 clap = "4.4.8"
+rayon = "1.8.0"
