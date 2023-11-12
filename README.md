@@ -1,4 +1,4 @@
-## Boosting with rust
+## LightGBM with rust vs. with python
 
 ## How to run
 To generate data
