@@ -1,0 +1,15 @@
+[package]
+name = "lightgbm_rust"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+lightgbm = "0.2.3"
+csv = "1.1.5"
+itertools = "0.9.0"
+serde_json = "1.0.59"
+polars = { version = "0.34.2", features = ["lazy", "temporal", "describe", "json", "parquet", "dtype-datetime"] }
+eval-metrics = "1.0.2"
+clap = "4.4.8"
