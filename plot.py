@@ -4,29 +4,19 @@ import json
 import os  
 import numpy as np  
   
-# Load the JSON data  
+
 with open('./data/results.json') as f:  
     data = json.load(f)  
   
-# Convert the data to a DataFrame  
 df = pd.json_normalize(data)  
 df = df.drop(["train_input", "test_input"], axis=1)
-  
-# Group the DataFrame by 'n_features' and 'n_samples' and compute the mean  
 df = df.groupby(['n_features', 'n_samples']).mean().reset_index()  
-  
-# Add a new column for the x-axis labels  
 df['x_label'] = 'f' + df['n_features'].astype(str) + '_r' + df['n_samples'].astype(str)  
-  
-# Compute speedups  
 df['load_speedup'] = df['python.load'] / df['rust.load']  
 df['train_speedup'] = df['python.train'] / df['rust.train']  
 df['inference_speedup'] = df['python.inference'] / df['rust.inference']  
-  
-# Re-index so that we have continuous indices for the x-axis  
 df = df.reset_index()  
   
-# Plot the data  
 x = np.arange(len(df['x_label']))  
 width = 0.15  
   
