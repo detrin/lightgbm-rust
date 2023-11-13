@@ -11,7 +11,7 @@ for row in ${datasets[@]}; do
     train_input=$(echo ${row} | jq -r '.train_input')  
     test_input=$(echo ${row} | jq -r '.test_input')  
   
-    for i in 1 2 3 4 5 6 7 8 9 10; do 
+    for i in 1 2 ; do 
         python_output=$(python3.11 lightgbm_benchmark.py --train_input ${train_input} --test_input ${test_input} | tail -n1)  
         rust_output=$(./target/release/lightgbm_rust --train_input ${train_input} --test_input ${test_input} | tail -n1)   
         results+=("{\"n_features\":${n_features},\"n_samples\":${n_samples},\"python\":${python_output},\"rust\":${rust_output},\"train_input\":\"${train_input}\",\"test_input\":\"${test_input}\"}")  
